@@ -1,0 +1,210 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Premium Certification Platform Design System */
+
+@layer base {
+  :root {
+    /* Core Colors - Professional Blue Theme */
+    --background: 0 0% 100%;
+    --foreground: 210 20% 20%; /* Darker gray for better contrast */
+    
+    --card: 0 0% 100%;
+    --card-foreground: 210 20% 20%;
+    
+    --popover: 0 0% 100%;
+    --popover-foreground: 210 20% 20%;
+    
+    /* Primary: A distinct indigo */
+    --primary: 240 50% 50%; /* A more vibrant indigo */
+    --primary-foreground: 0 0% 98%;
+    --primary-glow: 240 50% 65%;
+    
+    /* Secondary: A subtle purple */
+    --secondary: 270 30% 60%; /* Softer purple */
+    --secondary-foreground: 210 20% 20%;
+    --secondary-glow: 270 30% 75%;
+    
+    /* Accent: A complementary light blue */
+    --accent: 200 70% 55%; /* Clearer blue */
+    --accent-foreground: 0 0% 98%;
+    --accent-glow: 200 70% 70%;
+    
+    /* Muted Colors */
+    --muted: 210 15% 95%; /* Lighter muted tone */
+    --muted-foreground: 210 10% 40%;
+    
+    /* Success & Warning */
+    --success: 142 60% 40%;
+    --success-foreground: 0 0% 98%;
+    --warning: 40 90% 50%;
+    --warning-foreground: 210 20% 20%;
+    --destructive: 0 70% 50%;
+    --destructive-foreground: 210 40% 98%;
+    
+    /* UI Elements */
+    --border: 210 10% 90%; /* Softer border */
+    --input: 210 10% 95%;
+    --ring: 240 50% 50%;
+    --radius: 0.75rem;
+    
+    /* Updated Gradients with new palette */
+    --gradient-primary: linear-gradient(135deg, #003566, #001d3d);
+    --gradient-secondary: linear-gradient(135deg, #ffc300, #ffd60a);
+    --gradient-accent: linear-gradient(135deg, #003566, #001d3d);
+    --gradient-hero: linear-gradient(135deg, #003566 0%, #001d3d 50%, #000814 100%);
+    --gradient-card: linear-gradient(145deg, #001d3d 0%, #003566 100%);
+    
+    /* Shadows */
+    --shadow-sm: 0 1px 2px 0 rgba(0, 53, 102, 0.08);
+    --shadow-md: 0 4px 8px -1px rgba(0, 53, 102, 0.12), 0 2px 4px -1px rgba(0, 53, 102, 0.07);
+    --shadow-lg: 0 10px 15px -3px rgba(0, 53, 102, 0.15), 0 4px 6px -2px rgba(0, 53, 102, 0.08);
+    --shadow-xl: 0 20px 25px -5px rgba(0, 53, 102, 0.18), 0 10px 10px -5px rgba(0, 53, 102, 0.06);
+    --shadow-glow: 0 0 50px rgba(255, 214, 10, 0.6);
+    --shadow-card: 0 6px 30px rgba(0, 53, 102, 0.1);
+    
+    /* Animations */
+    --transition-smooth: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+    --transition-bounce: all 0.4s cubic-bezier(0.68, -0.6, 0.32, 1.6);
+
+    --sidebar-background: 220 10% 98%;
+    --sidebar-foreground: 240 5% 20%;
+    --sidebar-primary: 240 6% 15%;
+    --sidebar-primary-foreground: 0 0% 95%;
+    --sidebar-accent: 240 5% 90%;
+    --sidebar-accent-foreground: 240 6% 15%;
+    --sidebar-border: 220 10% 85%;
+    --sidebar-ring: 240 50% 60%;
+  }
+
+  .dark {
+    --background: 220 15% 15%;
+    --foreground: 210 20% 80%;
+    
+    --card: 220 18% 20%;
+    --card-foreground: 210 20% 80%;
+    
+    --popover: 220 18% 20%;
+    --popover-foreground: 210 20% 80%;
+    
+    /* Dark Mode Primary - Brighter Indigo */
+    --primary: 240 50% 65%;
+    --primary-foreground: 220 15% 15%;
+    --primary-glow: 240 50% 80%;
+    
+    /* Dark Mode Secondary - Brighter Purple */
+    --secondary: 270 30% 70%;
+    --secondary-foreground: 220 15% 15%;
+    --secondary-glow: 270 30% 85%;
+    
+    /* Dark Mode Accent - Brighter Light Blue */
+    --accent: 200 70% 65%;
+    --accent-foreground: 220 15% 15%;
+    --accent-glow: 200 70% 80%;
+    
+    --muted: 220 18% 20%;
+    --muted-foreground: 210 10% 60%;
+    
+    --success: 142 60% 50%;
+    --warning: 40 90% 60%;
+    --destructive: 0 70% 60%;
+    
+    --border: 220 18% 25%;
+    --input: 220 18% 20%;
+    --ring: 240 50% 65%;
+    
+    /* Dark Gradients with new palette */
+    --gradient-primary: linear-gradient(135deg, #001d3d, #000814);
+    --gradient-secondary: linear-gradient(135deg, #ffd60a, #ffc300);
+    --gradient-accent: linear-gradient(135deg, #001d3d, #000814);
+    --gradient-hero: linear-gradient(135deg, #001d3d 0%, #000814 50%, #003566 100%);
+    --gradient-card: linear-gradient(145deg, #000814 0%, #001d3d 100%);
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  
+  html {
+    font-family: 'Inter', system-ui, sans-serif;
+    height: 100%;
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-background text-foreground font-normal;
+    font-feature-settings: 'rlig' 1, 'calt' 1;
+    margin: 0;
+    padding: 0;
+    min-height: 100%;
+  }
+
+  /* Ensure React root fills viewport and has no spacing */
+  #root {
+    min-height: 100%;
+    margin: 0;
+    padding: 0;
+  }
+  
+  /* Custom scrollbar */
+  ::-webkit-scrollbar {
+    width: 6px;
+  }
+  
+  ::-webkit-scrollbar-track {
+    @apply bg-muted;
+  }
+  
+  ::-webkit-scrollbar-thumb {
+    @apply bg-primary/40 rounded-full;
+  }
+  
+  ::-webkit-scrollbar-thumb:hover {
+    @apply bg-primary/60;
+  }
+}
+
+@layer components {
+  /* Restore utility classes used across the app */
+  .card-elegant {
+    @apply bg-card/90 backdrop-blur-md border border-border/60 rounded-2xl shadow-card hover:shadow-lg transition-all duration-300 ease-out;
+  }
+  .card-gradient {
+    @apply bg-gradient-to-br from-card to-muted/50 border border-border/40 rounded-2xl shadow-card hover:shadow-xl transition-all duration-300;
+  }
+  .glow-primary { box-shadow: 0 0 40px rgba(0, 53, 102, 0.4); }
+  .glow-secondary { box-shadow: 0 0 40px rgba(255, 195, 0, 0.4); }
+  .hover-lift { @apply transform transition-all duration-300 hover:scale-105 hover:shadow-xl; }
+  .hover-glow { @apply transition-all duration-300; box-shadow: 0 0 0 rgba(0,0,0,0); }
+  .shimmer { background: linear-gradient(90deg, transparent, rgba(0, 53, 102, 0.15), transparent); background-size: 200% 100%; animation: shimmer 1.8s infinite; }
+  @keyframes shimmer { 0% { background-position: -200% 0; } 100% { background-position: 200% 0; } }
+  .progress-ring { transform: rotate(-90deg); }
+  .progress-circle { transition: stroke-dashoffset 0.6s ease-in-out; }
+
+  /* Hero button hover effects (scoped to first section in main to avoid nav links) */
+  main > section:first-of-type a[href="/certifications"] {
+    background-image: linear-gradient(135deg, #ffd60a, #ffc300);
+    transition: transform .25s ease, box-shadow .25s ease, background-image .25s ease;
+  }
+  main > section:first-of-type a[href="/certifications"]:hover {
+    transform: translateY(-1px) scale(1.04);
+    box-shadow: 0 0 32px rgba(255,214,10,0.35);
+    background-image: linear-gradient(135deg, #ffe36b, #ffd60a);
+  }
+  main > section:first-of-type a[href="/how-it-works"] {
+    position: relative;
+  }
+  main > section:first-of-type a[href="/how-it-works"]::after {
+    content: "";
+    position: absolute; left: 0; bottom: -4px; height: 2px; width: 0;
+    background: #ffd60a; transition: width .3s ease;
+  }
+  main > section:first-of-type a[href="/how-it-works"]:hover::after {
+    width: 100%;
+  }
+}
